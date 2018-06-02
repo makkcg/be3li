@@ -1,4 +1,5 @@
 <?php
+/***test for using github***/
 if (isset($_GET) && isset($_GET['p']) && $_GET['p'] == "admin") {
 	header("Location: bo/index.php");
 }elseif(isset($_GET) && isset($_GET['p']) && $_GET['p'] == "login"){
