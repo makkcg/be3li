@@ -7,7 +7,7 @@ class DatabaseManager {
     private $database_pass = "Be3L!DbCloud@2017";
 
     function __construct() {
-        $this->db_conection = mysqli_connect("45.40.164.53", $this->database_user, $this->database_pass, $this->database_name);
+        $this->db_conection = mysqli_connect("localhost", $this->database_user, $this->database_pass, $this->database_name);
         if (mysqli_connect_errno()) {
             error_log("Failed to connect to MySQL: " . mysqli_connect_error());
         }
