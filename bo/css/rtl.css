@@ -1,0 +1,138 @@
+#nav li{
+    float:right;
+}
+
+#logo{
+    float:right;
+    text-align: right;
+    margin-left: 12px;
+    margin-right: 0px;
+}
+
+#mainmenu{
+    float: left;
+}
+
+.ui-jqgrid .ui-jqgrid-title{
+    margin-right: 10px!important;
+    float:right;
+}
+
+.page_title{
+    float:right;
+    text-align: right;
+}
+
+.user_info{
+    float:left;
+    text-align: left;
+}
+
+.left{
+    float:right;
+}
+
+.right{
+    float:left;
+}
+
+.col1{
+    float:right;
+}
+
+.col2{
+    float:left;
+}
+
+form input, form select, form textarea, form label{
+    direction: rtl;
+}
+
+.logo{
+    float: right;
+}
+
+ok {
+    background-position: right 10px center;
+    padding-right: 35px;
+}
+
+button, .button{
+    margin-right: 0px;
+    margin-left: 10px;
+}
+
+form {
+    text-align: right;
+}
+
+.ui-pg-table.navtable{
+    float:left!important;
+}
+
+#container{
+    direction: rtl;
+}
+
+#nav .icon{
+    margin: 3px 0px -3px 10px;
+}
+
+.widget-header .icon{
+    margin: 1px 0 -1px 10px;
+}
+
+.widget-container ul li{
+    background: url(../media/list-rtl.png) no-repeat right center;
+    background-position-x: 280px;
+    background-position-y: 8px;
+    padding-right: 35px;
+    padding-left: 0;
+}
+
+#nav .has-submenu{
+    background: url(../media/arrow-rtl.png) no-repeat 8px center;
+}
+
+#nav ul ul {
+    right: 220px;
+}
+
+table{
+    text-align: right;
+    direction: rtl;
+}
+
+.ui-pg-table{
+    direction: ltr!important;
+}
+
+.a4_col1{
+    float: right;
+}
+
+.a4_col2{
+    float: left;
+}
+
+.a4_signature{
+    float:left;
+}
+
+#a4_title {
+    float: left;
+}  
+
+#a4_title h2{
+    text-align: left;
+}
+
+.a4_footer{
+    text-align: right;
+    direction: rtl;
+}
+
+.ui-jqgrid .ui-jqgrid-hbox-rtl {
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+}

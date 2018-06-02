@@ -1,0 +1,29 @@
+a, a:visited, h2, h3, .mandatory, .error_message, 
+.ui-state-highlight a, .ui-widget-content .ui-state-highlight a, .ui-widget-header .ui-state-highlight a,
+.ui-state-hover a, .ui-state-hover a:hover, .ui-state-hover a:link, .ui-state-hover a:visited{
+    color: #e34f26;
+}
+
+td a{
+    color: #e34f26!important;
+}
+
+.widget{
+    border: 1px solid #e34f26;
+}
+
+.widget-header, .ui-widget-header{
+    background: #e34f26 url(images/menu-bg.png);
+}
+
+#nav li li, #nav li:hover{
+    background: #e34f26
+}
+
+body{
+    background: #333;
+}
+
+#container {
+    background: url(images/bg.jpg);
+}

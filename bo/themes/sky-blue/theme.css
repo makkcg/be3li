@@ -1,0 +1,45 @@
+a, a:visited, h2,  h3, .mandatory , .error_message, 
+.ui-state-highlight a, .ui-widget-content .ui-state-highlight a, .ui-widget-header .ui-state-highlight a,
+.ui-state-hover a, .ui-state-hover a:hover, .ui-state-hover a:link, .ui-state-hover a:visited{
+    color: #78539c;
+}
+
+td a{
+    color: #78539c!important;
+}
+
+.widget{
+    border: 1px solid #78539c;
+}
+
+.widget-header, .ui-widget-header{
+    background: #2e6e9e url(images/menu-bg.png);
+}
+
+#nav li li, #nav li:hover{
+    background: #2e6e9e url(images/menu-bg.png);
+}
+
+body{
+    background: #333;
+}
+
+#container {
+    background: url(images/bg.jpg);
+}
+
+/**********Max Health Customization***/
+a, a:visited, h2, h3, .mandatory, .error_message, .ui-state-highlight a, .ui-widget-content .ui-state-highlight a, .ui-widget-header .ui-state-highlight a, .ui-state-hover a, .ui-state-hover a:hover, .ui-state-hover a:link, .ui-state-hover a:visited {
+    color: #638e2d;
+}
+
+body {
+    background: #4e6f23;
+	 font-family: cursive;
+}
+#nav li li, #nav li:hover {
+    background: #77aa36 url(images/menu-bg.png);
+}
+#container {
+    background: #fdfdfd;
+}

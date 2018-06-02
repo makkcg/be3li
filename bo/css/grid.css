@@ -1,0 +1,79 @@
+.ui-jqgrid .ui-pg-input{
+    height: auto;
+}
+
+.FormElement, .FormElement{
+    width: 350px;
+}
+
+.EditTable td textarea{
+    width: 350px;
+    height: 50px;
+}
+
+.gridcell{
+    font-size: 12px;
+}
+
+.ui-jqgrid-sortable{
+    font-size: 15px;
+}
+
+.ui-jqgrid-title{
+    font-size: 15px;
+    margin-left: 10px!important;
+}
+
+.ui-widget, .ui-jqgrid {
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+}
+
+.ui-widget-content.jqgrow.ui-row-ltr.ui-state-highlight{
+    background: #333;
+    color: #fff;
+}
+
+.ui-jqgrid tr.jqgrow td, td
+{
+    vertical-align: top;
+    white-space: normal !important;
+    padding:2px 5px;
+}
+
+tr.deleted_row, tr.deleted_row.ui-state-hover{
+    color: lightgrey;
+}
+
+tr.red_row, tr.red_row.ui-state-hover{
+    color: red!important;
+}
+
+.ui-pg-selbox{
+    display: none!important;
+}
+
+.ui-jqgrid-bdiv a , .ui-state-hover a, .ui-state-hover a:hover, .ui-state-hover a:link, .ui-state-hover a:visited{
+    text-decoration: underline;
+}
+
+table.ui-jqgrid-btable tr.jqgfirstrow td { 
+    border: none; 
+}
+
+table.ui-jqgrid-btable { 
+    height: 1px; 
+}
+
+.ui-jqgrid-ftable{
+    width: 1022px!important;
+}
+
+.ui-jqgrid-hbox{
+    padding-right: 0px!important;
+    padding-left: 0px!important;
+}
+
+.footrow td{
+    width: 100%!important;
+    text-align: right!important; 
+}

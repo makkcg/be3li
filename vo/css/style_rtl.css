@@ -1,0 +1,1105 @@
+
+body {
+	    margin: 5px;
+    background: url(../images/bg.jpg);
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 0;
+    color: #333;
+    background: url(../images/bg.jpg);
+    font-family: sans-serif;
+	direction: rtl;
+	font-size: 1em;
+}
+
+.login_box {
+    width: 400px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #DCDDE1;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;        
+    -webkit-box-shadow: 2px 2px 0px 1px rgba(235, 235, 235, 1);
+    -moz-box-shadow: 2px 2px 0px 1px rgba(235, 235, 235, 1);
+    box-shadow: 2px 2px 0px 1px rgba(235, 235, 235, 1);
+    color: #444;
+    margin-top: 150px;
+    padding: 20px 10px;
+}
+
+.login_box p{
+    text-align: center;
+}
+
+.center {
+    width: 100%;
+    text-align: center;
+}
+
+form {
+    margin: 0;
+}
+
+form label {
+    color: #333;
+    display: inline-block;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    padding: 0 0 0 3px;
+    width: 300px;
+    vertical-align: top;
+}
+
+form input, form select, form textarea {
+    background: #FFFFFF;
+    border: 1px solid #78539c;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+   /* padding: 10px;*/
+}
+
+form input, form select, form textArea {
+    margin: 0 0 12px 0;
+}
+
+.login_box form input, .login_box form select, .login_box form textArea {
+    width: 100%;
+}
+
+
+
+.sep {
+    margin: 0;
+    clear: both; 
+    height: 20px;
+    width: 100%;
+}
+
+.dotted {
+    border-bottom: 1px dashed #DDDDDD;
+}
+
+.ok {
+    background: #F3F3F3 url(../images/green_checkmark.png) no-repeat;
+    background-position: left 10px center;
+    padding-left: 35px;
+}
+
+button, .button {
+    background: #d79928;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d79928), to(#e7a938));
+    background: -webkit-linear-gradient(top, #e7a938, #d79928);
+    background: -moz-linear-gradient(top, #e7a938, #d79928);
+    background: -ms-linear-gradient(top, #e7a938, #d79928);
+    background: -o-linear-gradient(top, #e7a938, #d79928);
+    border: 1px solid #78539c;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
+    padding: 10px 20px;;
+    position: relative;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+#error, .error{
+    color: #d79928;
+}
+
+#left-container {
+    position: absolute;
+    width: 265px;
+    height: auto;
+    border-left: 1px solid #ccc;
+}
+
+#right-container {
+    position: inherit;
+    margin: 0 265px 0 0px;
+    min-width: 1000px;
+}
+
+#top-bar {
+    height: 40px;
+    padding: 0 30px;
+}
+
+#page-title {
+    float: left;
+    width: 420px;
+}
+
+#page{
+    min-height: 591px;
+    padding: 30px;
+}
+
+#footer {
+    text-align: center;
+    font-size: 12px;
+    line-height: 30px;
+    padding: 0 30px;
+}
+
+.left {
+    float: right;
+}
+
+.right {
+    float: left;
+}
+
+a, a:visited, a:hover {
+    color: #d79928;
+    text-decoration: none;
+}
+
+h1 {
+    color: #78539c;
+}
+
+#logo {
+    width: 100%;
+    text-align: center;
+    margin: 30px 0;
+}
+
+#nav, #top-bar ul {
+    list-style: none;
+    padding: 0;
+    float: left;
+}
+
+#nav li {
+    margin-bottom: -1px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+}
+
+#nav li a{
+    width: 234px;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    padding: 0 15px;
+    color: #78539c;
+}
+
+#nav li a:hover, #nav li a.active {
+    background-color: #eee;
+}
+
+i {
+    font-size: 16px!important;
+    margin-right: 15px;
+}
+
+#top-bar li {
+    float: left;
+    margin-left: 20px;
+}
+
+#top-bar li a {
+    line-height: 40px;
+    font-size: 1.1em;
+    color: #78539c;
+}
+
+#top-bar i {
+    margin-right: 0px;
+}
+
+.button i, button i {
+    margin-right: 5px;
+}
+
+#top-bar ul {
+    margin: 0;
+}
+
+#top-bar p {
+    float: right;
+    line-height: 40px;
+    font-size: 17px;
+    margin: 0;
+}
+
+.forgots {
+    float: right;
+}
+
+.forgots a {
+    color: #141071;/*#333;*/
+    cursor: pointer;
+    display: inline-block;
+    line-height: 40px;
+    margin-left: 10px;
+}
+
+.forgots a:hover{
+	
+    color: #029f4a!important;/* #d79928!important;*/
+}
+
+.halfwidth {
+    width: 48%;
+}
+
+.fullwidth{
+    width: 100%;
+    clear: both;
+}
+
+.widget {
+    border: solid 1px #78539c;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 2px 2px 0px 1px rgba(235, 235, 235, 1);
+    -moz-box-shadow: 2px 2px 0px 1px rgba(235, 235, 235, 1);
+    box-shadow: 2px 2px 0px 1px rgba(235, 235, 235, 1);
+}
+
+.widget-title {
+    width: 100%;
+    text-align: right;
+    color: #fff;
+    background-color: #78539c;
+    background: -webkit-linear-gradient(top, #78539c , #9873bc); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom, #78539c, #9873bc); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom, #78539c, #9873bc); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom, #78539c , #9873bc); /* Standard syntax */
+    line-height: 30px;
+}
+
+.widget-title i{
+    margin: 0px 7px;;
+}
+
+.widget-contents {
+    padding: 10px;
+    text-align: center;
+    min-height: 250px;
+}
+
+ul {
+    margin: 0;
+}
+
+.clock-item {
+    width: 100px;
+    font-family: "Raleway";
+    display: inline-block;
+}
+
+.clock-item .inner {
+    height: 0px;
+    padding-bottom: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.clock-canvas {
+    background-color: rgba(255, 255, 255, .1);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;    
+    height: 0px;
+    padding-bottom: 100%;
+}
+
+.clocktext {
+    color: #333;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: -50px;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    width: 100%;
+}
+
+.clocktext .val {
+    font-size: 40px;
+    margin-bottom: 5px;
+    margin-top: 12px;
+}
+
+.clocktext .type-time {
+    font-size: 12px;
+    margin-top: 0px
+}
+
+.italic {
+    font-style: italic;
+}
+
+table.bu {
+    display: inline-block;
+    border: 1px solid #DCDDE1;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;    background: white;
+    -webkit-box-shadow: 2px 2px 0px 1px rgba(235, 235, 235, 1);
+    -moz-box-shadow: 2px 2px 0px 1px rgba(235, 235, 235, 1);
+    box-shadow: 2px 2px 0px 1px rgba(235, 235, 235, 1);
+    font-weight: bold;
+    margin: 15px;
+    width: 118px;
+    height: 89px;
+}
+
+table.bu td {
+    padding: 10px;
+    text-align: center;
+}
+
+.bu .referrals{
+    color: #d79928;
+    height: 28px;
+}
+
+.bu .referrals_second_line{
+    color: #78539c;
+    height: 28px;
+}
+
+.qualfied0{
+    background-color: #555;
+    color: #fff;
+    height: 25px;
+}
+
+.qualfied1{
+    background-color: #d79928;
+    color: #fff;
+    height: 25px;
+}
+
+.qualfied2{
+    background-color: #78539c;
+    background: -webkit-linear-gradient(top, #78539c , #9873bc); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom, #78539c, #9873bc); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom, #78539c, #9873bc); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom, #78539c , #9873bc); /* Standard syntax */
+    color: #fff;
+    height: 25px;
+}
+
+.clear{
+    clear: both;
+}
+
+.table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.table>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #ddd;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    text-align: left;
+}
+
+input, select {
+    margin: 10px;
+    width: 400px;
+    height: 30px;
+}
+
+textarea{
+    width: 650px;
+    height: 60px;
+}
+
+input, select, textarea {
+    font-size: 14px!important;
+}
+
+.astrisk{
+    color: #d79928;
+}
+
+#ewallet_payment {
+    display: block;
+}
+
+.bu-div{
+    display: inline-block;
+    width: 300px;
+    height: 240px;
+}
+
+.genealogy .bu-div {
+    width: 235px;
+    height: 285px;
+}
+
+.genealogy table.bu {
+    margin: 5px;
+    font-size: 12px;
+    width: 90px;
+    height: 65px;
+}
+
+.genealogy table.bu td {
+    padding: 5px;
+}
+
+.first_genealogy_ir  {
+    width: 600px!important;
+}
+
+.first_genealogy_ir .bu1 {
+    margin: 5px!important;
+}
+
+.first_genealogy_ir .bu2 {
+    margin: 5px 185px 5px 5px!important;
+}
+
+.first_genealogy_ir .bu3 {
+    margin: 5px 5px 5px 185px!important;
+}
+
+.page-info, .showing, .pagination, .total-records{
+    display: inline-block;
+    width:24%;
+    font-weight: bold;    
+    color: #d79928;
+    margin-bottom: 5px;
+}
+
+.page-info {
+    text-align: left;
+}
+
+.showing, .total-records {
+    text-align: center;
+}
+
+.pagination {
+    text-align: right;
+}
+
+.pagination i {
+    font-size: 20px!important;
+    margin-right: 0!important;
+    margin-left: 10px!important;
+}
+
+table td, table th{
+    text-align: center;
+}
+
+.widget-contents .bu-div {
+    width: 400px;
+}
+
+.widget-contents table.bu {
+    font-size: 1em;
+}
+
+#dashboard-counter{
+    display: none;
+}
+
+#dashboard-counter-button {
+    width: 100%;
+    text-align: center;
+}
+
+#dashboard-counter-button a {
+    margin-top: 40px;
+    float: right;
+}
+
+#dashboard-counter-paragraph {
+    margin-top: 100px;
+    text-align: right;
+    font-weight: bold;
+}
+
+a.button, a.button:hover, a.button:visited{
+    color: #fff;
+}
+
+#header-menu {
+    float: right;
+    margin-top: 19px;
+    margin-right: -10px;
+}
+
+#header{
+    clear: both;
+    height: 75px;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 0 30px;
+}
+
+a.button:hover, button:hover, #header-menu a.active {
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d79928), to(#b77908));
+    background: -webkit-linear-gradient(top, #b77908, #d79928);
+    background: -moz-linear-gradient(top, #b77908, #d79928);
+    background: -ms-linear-gradient(top, #b77908, #d79928);
+    background: -o-linear-gradient(top, #b77908, #d79928);
+}
+
+#header-menu a {
+    font-size: 1.2em;
+    padding: 10px 10px;
+}
+
+#page-title i{
+    font-size: 30px!important;
+    margin-right: 0px;
+}
+
+table {
+    width: 100%;
+}
+
+.category {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 2%;
+    margin-bottom: 30px;
+}
+
+.category a, .category a:hover {
+    width: 100%;
+    color: #333;
+}
+
+.category td {
+    text-align: left;
+}
+
+.product {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 2%;
+    margin-bottom: 30px;
+}
+
+.product td {
+    text-align: center;
+}
+
+.product-column{
+    text-align: left;
+}
+
+.price-column{
+    width: 100px;
+}
+
+.total-product-column{
+    text-align: right;
+    font-weight: bold;
+}
+
+.total-price-column{
+    font-weight: bold;
+}
+
+#cart-actions{
+    text-align: right;
+}
+
+#new-customer-data, #existing-customer-data {
+    display: none;
+}
+
+.order-info th{
+    width: 200px;
+    text-align: left; 
+}
+
+.order-info td{
+    text-align: left; 
+}
+
+#certificate-print{
+    margin: 20px auto;
+    width: 1000px;
+    height: 700px;
+    text-align: center;
+}
+
+
+.certificate-bg {
+    width: 1000px;
+    height: 700px;
+    margin-bottom: -700px;
+}
+
+#certificate-error{
+    margin: 20px auto;
+    width: 1000px;
+    height: 700px;
+    text-align: center;
+}
+
+.certificate-logo{
+    margin: 150px 0 50px 0;
+	width: 150px;
+}
+
+.certificate-text-small{
+    font-size: 20px;
+    font-style: italic;
+}
+
+.certificate-text-big {
+    font-family: 'Pacifico', cursive;
+    font-size: 35px;
+}
+
+.certificate-date {
+    position: relative;
+    top: -370px;
+    left: -320px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.certificate-stamp {
+    position: relative;
+    top: -118px;
+    left: 260px;
+    width: 180px;
+}
+
+.inactive  {
+    background: #555!important;
+    border: 1px solid #555;
+}
+
+#business_units_in_registration {
+    display: none;
+}
+
+input[readonly]{
+    background-color: #dadada;
+}
+
+input[type="file"]{
+    border: none;
+    padding-left: 0px;
+}
+
+.year{
+    width: 100px;
+}
+
+.month{
+    width: 100px;
+}
+
+.day{
+    width: 50px;
+}
+
+#shop-menu {
+    clear: both;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+#shop-menu a {
+    margin-right: -0px;
+}
+
+#creditcard_payment {
+    width: 49%;
+    float: right;
+    text-align: center;
+}
+
+#ewallet_payment {
+    width: 49%;
+    float: left;
+    border-right: 1px solid #ccc;
+    text-align: center;
+}
+
+form.support textarea{
+    height: 200px!important;
+}
+
+.payment_icon i {
+    font-size: 50px!important;
+    color: #d79928;
+}
+
+form select {
+    min-height: 37px;
+}
+.qulify_bu001{
+	/*width: 90%;
+    margin: 10px auto;*/
+	margin: 10px 10%;
+    padding: 10px 15%;
+}
+.qulify_bu002{
+	width: 40%;
+    float: left;
+    margin: 5px auto;
+}
+
+.qulify_bu003{
+	width: 40%;
+    float: right;
+    margin: 5px auto;
+}
+/***************MAX HEALTH****************/
+
+h1 {
+    color: #f69100;
+}
+#header {
+    background-color: rgba(255, 255, 255, 0.74);
+}
+#left-container {
+    background-color: rgba(255, 255, 255, 0.98);
+}
+#top-bar {
+    background-color: rgba(255, 255, 255, 0.98);
+}
+#top-bar li a {
+    color: #e48400;
+}
+#page {
+    background-color: rgba(255, 255, 255, 0) ;/*rgba(255, 255, 255, 0.74);*/
+}
+.widget-contents {
+    background-color: rgba(255,255,255,0.80);
+}
+.login_box {
+	width: 350px;
+	margin-top: 50px;
+    padding: 10px 10px;
+	background: rgb(255, 255, 255);
+    /* background: rgba(163, 230, 116, 0); */
+    border: 1px solid #8cc93feb;
+    border-radius: 15px;
+    -webkit-box-shadow: 2px 2px 0px 1px rgba(139, 195, 74, 0.45);
+    -moz-box-shadow: 2px 2px 0px 1px rgba(235, 235, 235, 1);
+    box-shadow: 2px 2px 0px 1px #8cc93fb0;
+}
+#error, .error {
+    color: red;
+	background: yellow;
+	padding: 10px;
+	text-align: center;
+}
+form label {
+    color: #23206e;/*#77aa36;*/
+	text-align:center;
+}
+button, .button {
+	background-color: rgb(0, 128, 201);
+    background: -webkit-linear-gradient(top, #0d439d, rgb(0, 126, 199));
+    background: -webkit-linear-gradient(top, #0d439d, rgb(0, 130, 203));
+	background: -moz-linear-gradient(top, #0d439d, rgb(0, 130, 203));
+    background: -ms-linear-gradient(top, #0d439d, rgb(0, 130, 203));
+    background: -o-linear-gradient(top, #0d439d, rgb(0, 130, 203));
+}
+a.button:hover, button:hover, #header-menu a.active {
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(0, 126, 199)), to(#0d439d));
+    background: -webkit-linear-gradient(top, rgb(0, 126, 199), #0d439d);
+	background: -moz-linear-gradient(top, rgb(0, 126, 199), #0d439d);
+    background: -ms-linear-gradient(top, rgb(0, 126, 199), #0d439d);
+    background: -o-linear-gradient(top, rgb(0, 126, 199), #0d439d);
+	
+}
+.widget-title {
+    width: 100%;
+    text-align: right;
+    color: #fff;
+    background-color: #8cc93f;
+    background: -webkit-linear-gradient(top, #78539c , #9873bc);
+    background: -o-linear-gradient(bottom, #78539c, #9873bc);
+    background: -moz-linear-gradient(bottom, #78539c, #9873bc);
+    background: linear-gradient(to bottom, #69982f , rgb(140, 201, 63));
+    line-height: 30px;
+}
+#nav li a:hover, #nav li a.active {
+    background-color: rgba(162, 210, 123, 0.45);
+}
+#nav li a {
+    width: 234px;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    font-family: cursive;
+    padding: 0 15px;
+    color: #5e9c50;
+}
+/***geneology**/
+table.bu {
+    display: inline-block;
+     border: none; 
+}
+.bu .referrals {
+    color: #f69100;
+    height: auto;
+    font-size: 11px;
+    font-family: sans-serif;
+}
+.bu .referrals_second_line {
+    color: #78539c;
+    height: auto;
+    font-size: 11px;
+    font-family: sans-serif;
+}
+.qualfied0 {
+    background-color: #adadad;
+    color: #fff;
+    height: 25px;
+}
+.qualfied1 {
+    background-color: #ece955;
+    color: #fff;
+}
+.qualfied2 {
+    background-color: #4CAF50;
+    background: -webkit-linear-gradient(top, #78539c , #9873bc);
+    background: -o-linear-gradient(bottom, #78539c, #9873bc);
+    background: -moz-linear-gradient(bottom, #78539c, #9873bc);
+    background: linear-gradient(to bottom, #009688 , #8cc93f);
+    color: #fff;
+    height: 25px;
+}
+.genealogy table.bu {
+    margin: 3px;
+    font-size: 12px;
+    width: auto;
+	font-family: sans-serif;
+	height: auto; 
+}
+
+.genealogy table.bu td {
+    padding: 2px;
+}
+
+#left-container {
+    min-height: 850px;
+}
+#header {
+    clear: both;
+    /* height: 75px; */
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    /* padding: 0 30px; */
+    display: block;
+	background-color: rgba(235, 235, 235, 1);/*rgba(255, 255, 255, 0.97);*/
+}
+#page-title {
+    float: none;
+    text-align: center;
+    width: 100%;
+}
+#header-menu {
+    float: none;
+    margin: 3px auto;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    padding: 7px 0;
+   /* background: -webkit-linear-gradient(top, #7ac338 , rgb(13, 168, 74));
+	 background: -o-linear-gradient(bottom, #7ac338 , rgb(13, 168, 74));
+    background: -moz-linear-gradient(bottom, #7ac338 , rgb(13, 168, 74));
+    background: linear-gradient(to bottom, #7ac338 , rgb(13, 168, 74));
+    /* border-radius: 15px; */
+}
+#page-title h1{
+	color:#333333;/* #0d47a0;*/
+    margin: 5px 2px;
+   /* background: #eee;*/
+    border-radius: 15px;
+    padding: 3px;
+}
+#page {
+    min-height: 591px;
+    padding: 30px;
+    display: inline-block;
+    margin: 10px auto;
+	width: 94.5%;
+}
+#page {
+    background-color: rgba(255, 255, 255, 0.98);
+}
+#top-bar li {
+    float: left;
+    margin-left: 5px;
+    border-left: 1px solid #ccc;
+    padding: 0 10px;
+    border-right: 1px solid #ccc;
+}
+#top-bar li:hover{
+    background: #f3571d;
+  
+}
+#top-bar li a {
+    color: #555;
+}
+#top-bar li a:hover{
+     color: white;
+}
+.widget-contents {
+    background-color: rgba(255, 255, 255, 0.98);
+}
+.widget-title {
+    background-color: #0373bf;
+    background: -webkit-linear-gradient(top, #0374c0 , rgb(12, 77, 165));
+    background: -o-linear-gradient(bottom, #017ac4 , rgb(13, 71, 160));
+    background: -moz-linear-gradient(bottom, #017ac4 , rgb(13, 71, 160));
+    background: linear-gradient(to bottom, #017ac4 , rgb(13, 71, 160));
+    line-height: 30px;
+}
+#nav li a {
+
+    color: #333;
+	font-family: sans-serif;
+    font-size: 1.1em;
+}
+
+#footer {
+    color: white;
+}
+a.button:hover, button:hover, #header-menu a.active {
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(13, 168, 74)), to(#0da84a));
+    background: -webkit-linear-gradient(top, rgb(13, 168, 74), rgb(13, 168, 74));
+    background: -moz-linear-gradient(top, rgb(13, 168, 74), rgb(13, 168, 74));
+    background: -ms-linear-gradient(top, rgb(13, 168, 74), rgb(13, 168, 74));
+    background: -o-linear-gradient(top, rgb(13, 168, 74), rgb(13, 168, 74));
+}
+.page-info, .showing, .pagination, .total-records {
+    color: #0b4ba2;
+}
+/***show hide qualify binary shop div**/
+.qualifyBinary_Div{
+	/*display:none;*/
+}
+/****css for retail network page***/
+.row{
+	width:100%;
+	padding:5px;
+}
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    /*width: 120px;*/
+    background-color: #FFEB3B;
+    color: black;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%; 
+    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+/* DivTable.com */
+.divTable{
+	display: table;
+	width: 100%;
+}
+.divTableRow {
+	display: table-row;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableCell, .divTableHead {
+	border: 1px solid #999999;
+	display: table-cell;
+	padding: 3px 10px;
+	border-radius: 5px;
+	text-align: center;
+	vertical-align: middle;
+}
+.divTableCellcol1 {
+	width:15%;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
+}
+.ir_box_div {
+    padding: 5px;
+    white-space: nowrap;
+    /* width: 38px; */
+    text-align: center;
+    box-sizing: border-box;
+    height: auto;
+    float: left;
+    border-radius: 2px;
+    font-size: 90%;
+    background-color: #555;
+    color: #ffffff;
+    transform: translateY(-1px);
+    margin: 3px;
+}
+
+.ir_box_div_qual1 {
+    background-color: #d79928 !important;
+}
+
+.ir_box_div_qual2 {
+    background-color: #78539c !important;
+}
+/***************Transfer /Recharge Module******/
+.transfertoir_div{
+	width: 45%;
+	margin: 5px 20px;
+	display: inline-block;
+	border-right: 1px dotted gray;
+	float: right;
+}

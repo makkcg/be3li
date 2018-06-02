@@ -1,0 +1,92 @@
+#nav .icon {
+    height: 20px;
+    margin: 3px 10px -3px 0;
+}
+
+#nav .has-submenu { 
+    background: url(../media/arrow.png) no-repeat 233px center;
+}
+
+#nav a {
+    display: block;
+    padding: 8px 20px;
+    text-decoration: none;
+    color: #fff;
+    line-height: 30px;
+    font-size: 16px;
+}
+
+#nav {
+    padding: 0;
+    margin: 0px;
+    float:right;
+}
+
+#nav li {
+    list-style: none;
+    display: block;
+    float: left; 
+    border:1px solid #ccc;
+}
+
+#nav ul ul li {
+    clear:left;
+}
+
+#nav ul ul {
+    position: absolute;
+    left: 220px;
+    margin-top: -46px;
+}
+
+#nav li ul {
+    display: none;
+    background-color:transparent;
+    z-index:666;
+    position: absolute;
+    padding:0px; 
+    width: 258px;
+}
+
+#nav li:hover ul, #nav li.hover ul {
+    display: block;
+}
+
+#nav li li{
+    float: none; 
+}
+
+#nav li li a{
+    color:#fff; 
+    line-height: 20px;
+    font-weight: none;
+    font-size: 12px;
+}
+
+#nav li li a:hover {
+    background-color:#333; 
+    color:#fff;
+}
+
+#nav li:hover ul ul {
+    display:none;
+}
+
+#nav li ul li:hover ul {
+    display:block;
+}
+
+#nav li li a {
+    padding: 4px 20px;
+}
+
+/******MAx Health customizatono ****/
+#nav li {
+    border: 1px solid rgba(78, 111, 35, 0.12);
+    border-radius: 5px;
+}
+#nav li li a:hover {
+    background-color: #a8ec4f;
+    color: #fff;
+    border-radius: 5px;
+}

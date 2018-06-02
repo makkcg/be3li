@@ -1,0 +1,164 @@
+<?php
+////file created by KCG (Khalifa Computer Group) to go back to PA prefix and remove VAs from db the go back step is to allow additional pioneers to be verified
+
+///this file is to be run manulally by administrator , it should run once after backing up DB
+error_log("------------------------------ Starting Go Back step for Pioneers registeration Prefix Pioneers ------------------------------");
+
+
+include "includes/database_manager.php";
+//include "includes/core.php";
+
+$database_manager = new DatabaseManager();
+//$core = new Core($database_manager);
+
+// Lock Registration OK
+$sql = "UPDATE configuration SET register_lock = 1";
+$database_manager->query($sql);
+error_log($sql);
+
+if ($_GET['secret'] == "e0d39uN3hb38f4uhR84rhf84rfe9e9dfedfc33") {
+	$qulification_done=false;
+
+	/////////////////////////////////////////////////////////
+////get All VAs to remove and put in array
+
+	$ir_to_remove=array();
+	$ir_bu_reomove=array();
+	
+	$sql = "SELECT * from ir WHERE `ir_id` LIKE 'VA%' ";
+	 $result = $database_manager->query($sql);
+	echo "Retrival of VAs process started". "<br/>";
+	sleep(2);
+	flush();
+	ob_flush();	
+    while ($row = mysqli_fetch_assoc($result)) {
+		$ir_id = $row['ir_id'];
+		$ir_to_remove[]=array("ir_id" => $ir_id);
+		echo $ir_id." IR added to array  ---- <br/>";
+		flush();
+		ob_flush();
+		for($i=0;$i<3;$i++){
+			$ir_id_bu=$ir_id."-00".($i+1);
+		$ir_bu_reomove[]=array("ir_id_bu" => $ir_id_bu);	
+		echo $ir_id_bu." BU added to array2  ---- <br/>";
+		flush();
+		ob_flush();
+		}
+	}// end wile
+
+	echo "-------------------------------------------No. of VAs in the system = ".sizeof($ir_to_remove)."  ---------------------------------- <br>";
+////delete bu from the genoulogy of uplines in bu table
+	
+	//looping through the ir_bu that will be removed from the left and right of uplines
+	echo "--------------------Removing VAs from Right and Left Geneology of Upline IRs----------------------------------------------<br>";
+	$a=0;
+	for($a=0;$a< sizeof($ir_bu_reomove) ; $a++){
+		///remove from right left of uplines
+		
+		$butoremove=$ir_bu_reomove[$a]["ir_id_bu"];
+		echo "<p>".$butoremove."----====----</p>";
+		$sql3 = "SELECT ir_id,left_children,right_children FROM `bu` WHERE `left_children` LIKE '%".$butoremove."%' Or  `right_children` LIKE '%".$butoremove."%'";
+		
+		//echo $sql3."<p>***************</p>";
+		$result3 = $database_manager->query($sql3);
+		//echo $result3;
+		//sleep(1);
+		flush();
+		ob_flush();	
+		while ($row = mysqli_fetch_assoc($result3)) {
+			
+			$ir_hav_child=$row['ir_id'];
+			echo "ir have left or right      ".$ir_hav_child."<br>";
+			$l_child = $row['left_children'];
+			$r_child = $row['right_children'];
+			$l_child_new=str_replace(", '".$butoremove."'", "", $l_child);
+			$r_child_new=str_replace(", '".$butoremove."'", "", $r_child);
+			////update the Right or Left of IR after removing the bu
+			$sql33 = 'UPDATE `bu` SET  `left_children` =  "'.$l_child_new.'",`right_children` = "'.$r_child_new.'" WHERE  `bu`.`ir_id` ="'.$ir_hav_child.'";';
+			//echo "update query    ".$sql33."<br>";
+			$result33 = $database_manager->query($sql33);
+			
+			echo "IR updated ,Result  ".$result33." <br/>";
+			flush();
+			ob_flush();
+		}// end wile
+		
+		////remove dc counters of bus
+		$sql202 = "DELETE FROM dc WHERE dc.bu_id ='".$butoremove."';";
+		$result202 = $database_manager->query($sql202);
+		echo $butoremove." removed from dc table  ----Result = ".$result202." <br/>";
+		flush();
+		ob_flush();
+	}//end for business units if irs = VAs
+
+////Delete IRs-BUs of VAs from bu and IR table///////////////////////////////////////
+	$ss=0;
+	for($ss=0;$ss< sizeof($ir_to_remove) ;$ss++){
+		$sql22 = "DELETE FROM bu WHERE bu.ir_id ='".$ir_to_remove[$ss]["ir_id"]."';";
+		$result22 = $database_manager->query($sql22);
+		echo $ir_to_remove[$ss]["ir_id"]." removed from BU table  ----Result = ".$result22." <br/>";
+		flush();
+			ob_flush();
+////last delete IRs of VAs		
+		$sql002 = "DELETE FROM ir WHERE ir.ir_id ='".$ir_to_remove[$ss]["ir_id"]."';";
+		$result002 = $database_manager->query($sql002);
+		echo $ir_to_remove[$ss]["ir_id"]." removed from IR  ----Result = ".$result002." <br/>";
+		flush();
+			ob_flush();
+	}///end for irs deletion from ir and bu tables
+	
+////Remove VAs from transactions///////////////////////////////////////
+
+	$ss=0;
+	for($ss=0;$ss < sizeof($ir_to_remove) ;$ss++){
+		$sql222 = "DELETE FROM transaction WHERE transaction.ir_id ='".$ir_to_remove[$ss]["ir_id"]."';";
+		$result222 = $database_manager->query($sql222);
+		echo $ir_to_remove[$ss]["ir_id"]." removed from Transactions table  ----Result = ".$result222." <br/>";
+		flush();
+			ob_flush();
+	}
+
+/////Remove Orders of IR = VAs/////////////////////////////////
+	$orders_ofVAs=array();
+	//get orders of VAs into array
+	$sql9 = "SELECT id,ir_id from shop_order WHERE `ir_id` LIKE 'VA%' ";
+	$result9 = $database_manager->query($sql9);
+	while ($row = mysqli_fetch_assoc($result9)) {
+		$orders_ofVAs[]=array("orderid"=>$row["id"]);
+	}
+	//loop through orders and delete order line and delete the order of VAs
+	for($q=0;$q<sizeof($orders_ofVAs);$q++){
+		$ordID=$orders_ofVAs[$q]["orderid"];
+		
+		//del from shop order line
+		$sql10025 = "DELETE FROM shop_order_line WHERE shop_order_line.shop_order_id ='".$ordID."';";
+		$result10025 = $database_manager->query($sql10025);
+		echo $ordID." removed from shop order line  ----Result = ".$result10025." <br/>";
+		flush();
+			ob_flush();
+		///del from shop order
+		$sql1002 = "DELETE FROM shop_order WHERE shop_order.id ='".$ordID."';";
+		$result1002 = $database_manager->query($sql1002);
+		echo $ordID." removed from Shop Order  ----Result = ".$result1002." <br/>";
+		flush();
+			ob_flush();
+	}
+	
+////////update new registrations prefix in the newly created db table prefix
+	
+	$sql = "INSERT INTO prefix (id, prefix, date, notes) ";
+	$sql .= " VALUES (NULL,'PA','".date("Y-m-d"). "' ,'Secound Type IRS')";
+	$database_manager->query($sql);
+	echo "------------Prefix Update to PA------<br>";
+///Allow new user registrations.
+	$sql = "UPDATE configuration SET register_lock = 0";
+	$database_manager->query($sql);
+	echo "------------REgistration is allowed now ------<br>";
+	
+}else{//end if secret
+	echo "Security violation... not allowed ";
+}
+	
+	
+error_log("------------------------------ Ending Qulifing Pioneers ------------------------------");
+?>

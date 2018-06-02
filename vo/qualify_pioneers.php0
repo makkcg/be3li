@@ -1,0 +1,158 @@
+<?php
+////file created by KCG (Khalifa Computer Group) to qulify poineers BU 001 for pioneers to specific date 
+
+///this file is to be run manulally by administrator , it should run once after backing up DB
+error_log("------------------------------ Starting Qualifing Pioneers ------------------------------");
+
+/*
+ Database changes:
+  ------------------
+	ir -> qualification_date formate "2016-04-10 12:55:45"
+	bu -> is_qualified =2
+	bu->  // the parent 
+	bu->
+	prefix -> insert new record with the new prefix (newly created table)
+	Conditions:
+		ir-> registration_date before spicific date and time  format "2016-04-10 12:55:45"
+		bu -> code 001
+		optional (if we changed the prfix of not pioneers to another prefix)
+		ir -> ir_id prefix "PA"
+		bu -> ir_id prefix "PA"
+	
+ */
+
+include "includes/database_manager.php";
+//include "includes/core.php";
+
+$database_manager = new DatabaseManager();
+//$core = new Core($database_manager);
+
+// Lock Registration OK
+$sql = "UPDATE configuration SET register_lock = 1";
+$database_manager->query($sql);
+error_log($sql);
+
+if ($_GET['secret'] == "e0d39uN3hb38f4uhR84rhf84rfe9e9dfedfc33") {
+	$qulification_done=false;
+	//////////////////backup all the values in all PAs wallets
+	/*$ir_wallets=array();
+	$sql = "SELECT `id`,`ir_id`,`ewallet`,`total_ewallet` from ir WHERE `ewallet`!=0 and `ir_id` LIKE 'PA%'";
+    $result = $database_manager->query($sql);
+	//error_log($sql);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+	$ir_wallets[]=array("id" => $row["id"],"ir_id" => $row["ir_id"],"ewallet" => $row["ewallet"],"total_ewallet" => $row["total_ewallet"]);
+	}*/
+	/////////////////////////////////////////////////////////
+	///create array of irs & bu to be qualified automatically
+	$ir_bu_to_qualify=array();
+
+	$sql = "SELECT `id`,`ir_id`,`code` from bu WHERE `is_qualified`=0 and `code`='001' and `ir_id` LIKE 'PA%' LIMIT 300";
+	
+	
+	//$sql = "SELECT `id`,`ir_id`,`code` from bu WHERE `is_qualified`=0 and `code`=001 and `ir_id` LIKE 'PA%' and `ir_id` = 'PA0679';";
+    $result = $database_manager->query($sql);
+	echo "qulification process of pioneers started". "<br/>";
+	
+	sleep(5);
+
+   // error_log($sql);
+	flush();
+	ob_flush();
+	
+    while ($row = mysqli_fetch_assoc($result)) {
+        $bu_id = $row['id'];
+        //$ir_id = $core->getIRID($bu_id);
+		$ir_id = $row['ir_id'];
+       // $bu_code = $core->getBUCode($bu_id);
+		$bu_code = $row['code'];
+		$ir_bu_to_qualify[]=array("bu_id" => $bu_id,"ir_id" => $ir_id,"bu_code" => $bu_code);
+		//echo $ir_id." added to array  -----".$bu_id."-".$bu_code."-". "<br/>";
+		//flush();
+		//ob_flush();
+	}// end wile
+	
+
+	/////qulification routine (Loop) for each ir & bu code =001 of pioneers
+	$no_of_notQ_pioneers= sizeof($ir_bu_to_qualify);
+	echo " Total Number of Not Qualified PAs ----->  ".$no_of_notQ_pioneers."<br/>";
+	flush();
+	ob_flush();
+	for($i=0;$i<$no_of_notQ_pioneers;$i++){
+		$curr_ir_id = $ir_bu_to_qualify[$i]["ir_id"];
+		$curr_bu_id = $ir_bu_to_qualify[$i]["bu_id"];
+		$curr_bu_code = $ir_bu_to_qualify[$i]["bu_code"];
+		
+	// UPDATE IR & BU
+        $sql = "UPDATE bu SET is_qualified = 2 "
+                . " WHERE ir_id = '" . $curr_ir_id . "' "
+                . " AND code = '" . $curr_bu_code . "' ";
+        $database_manager->query($sql);
+
+        $sql = "UPDATE ir SET qualification_date = '" . date("Y-m-d H:i:s") . "' WHERE ir_id = '" . $curr_ir_id . "'";
+        $database_manager->query($sql);
+
+        // UPDATE Parents dc, dbv, abv
+
+        $sql = "UPDATE bu SET left_dbv = left_dbv + 1, left_abv = left_abv + 1 "
+                . " WHERE left_children LIKE '%" . $curr_ir_id . "-" . $curr_bu_code . "%' ";
+        $database_manager->query($sql);
+
+        $sql = "UPDATE dc SET left_dc = left_dc + 1 "
+                . " WHERE date = '" . date("Y-m-d H:i:s") . "' "
+                . " AND bu_id IN ( "
+                . " SELECT CONCAT(ir_id, '-', code) AS bu_id FROM bu "
+                . " WHERE left_children LIKE '%" . $curr_ir_id . "-" . $curr_bu_code . "%' "
+                . ")";
+        $database_manager->query($sql);
+
+        $sql = "UPDATE bu SET right_dbv = right_dbv + 1, right_abv = right_abv + 1 "
+                . " WHERE right_children LIKE '%" . $curr_ir_id . "-" . $curr_bu_code . "%' ";
+        $database_manager->query($sql);
+
+        $sql = "UPDATE dc SET right_dc = right_dc + 1 "
+                . " WHERE date = '" . date("Y-m-d H:i:s") . "' "
+                . " AND bu_id IN ( "
+                . " SELECT CONCAT(ir_id, '-', code) AS bu_id FROM bu "
+                . " WHERE right_children LIKE '%" . $curr_ir_id . "-" . $curr_bu_code . "%' "
+                . ")";
+        $database_manager->query($sql);
+		echo $i." - IR No. : ".$curr_ir_id."-".$curr_bu_code." is qualifyed". "<br/>";
+		
+		//sleep(5);
+		flush();
+		ob_flush();
+	}//end loop
+	
+	////////update new registrations prefix in the newly created db table prefix
+	
+	$sql = "INSERT INTO prefix (id, prefix, date, notes) ";
+	$sql .= " VALUES (NULL,'VA','".date("Y-m-d"). "' ,'Secound Type IRS')";
+	$database_manager->query($sql);
+	//error_log($sql);
+	
+	///Allow new user registrations.
+	$sql = "UPDATE configuration SET register_lock = 0";
+	$database_manager->query($sql);
+	error_log($sql);
+	
+	echo "Number of currently qualified pioneers: ".$no_of_notQ_pioneers;
+	
+	/////comment all ewallet lines in day_close.php in the server
+	///// wait until day coutner (day_close.php) at 12:00am for one houre
+	///// after closure , uncomment the last commented lines in daily counter (day_close.php) before the next auto closing time.
+	
+	
+	///////////////////////////////////////////////End day close routine/////////
+	
+	//////reset the eWallet - to the last value before qualification of pioneers
+	
+	
+	
+	
+	}else{//end if secret
+	
+	echo "Security violation... not allowed ";
+	}
+error_log("------------------------------ Ending Qulifing Pioneers ------------------------------");
+?>
