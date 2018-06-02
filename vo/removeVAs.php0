@@ -1,5 +1,5 @@
 <?php
-////file created by KCG (Khalifa Computer Group) to go back to PA prefix and remove VAs from db the go back step is to allow additional pioneers to be verified
+/*file created by KCG (Khalifa Computer Group) to go back to PA prefix and remove VAs from db the go back step is to allow additional pioneers to be verified*\
 
 ///this file is to be run manulally by administrator , it should run once after backing up DB
 error_log("------------------------------ Starting Go Back step for Pioneers registeration Prefix Pioneers ------------------------------");
